@@ -58,15 +58,15 @@
                                     <td>{{ $post->category ? $post->category->name : 'Senza categoria' }}</td>
                                     <td>
                                         <div>
-                                            <span class="badge text-bg-primary"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="">show</a></span>
+                                            <span class="badge text-bg-primary"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="{{ route('admin.posts.show', $post->slug) }}">show</a></span>
                                         </div>
                                         <div>
-                                            <span class="badge text-bg-success"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="">Edit</a></span>
+                                            <span class="badge text-bg-success"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="{{ route('admin.posts.edit', $post->slug) }}">Edit</a></span>
                                         </div>
-                                        <form action="" method="POST">
+                                        <form action="{{ route('admin.posts.destroy', $post->slug) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type='submit' class="delete-button btn btn-danger text-white" data-item-title=""> <i class="fa-solid fa-trash"></i></button>
+                                            <button type='submit' class="delete-button btn btn-danger text-white" data-item-title="{{ $post->slug }}"> <i class="fa-solid fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

@@ -101,7 +101,7 @@ class CategoryController extends Controller
         $data['slug'] = $slug;
         $category->update($data);
 
-        return redirect()->route('admin.categories.show', $category->slug)->with('message', "$category->name è stata aggiornata con successo");;
+        return redirect()->route('admin.categories.show', $category->slug)->with('message', "$category->name è stata aggiornata con successo");
     }
 
     /**

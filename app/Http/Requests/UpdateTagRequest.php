@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTagRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateTagRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,21 @@ class UpdateTagRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                 Rule::unique('tags')->ignore($this->tag),
+                'max:50',
+                'min:2'
+            ],
+        ];
+    }
+    public function messages()
+    {
+        return [
+
+            'name.required' => 'Il campo Tag è obbligatorio',
+            'name.max' => 'Il Tag deve essere inferiore a 50 caratteri',
+            'name.min' => 'Il Tag deve essere maggiore di 2 caratteri',
         ];
     }
 }

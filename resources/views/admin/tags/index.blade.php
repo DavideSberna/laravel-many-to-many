@@ -37,7 +37,7 @@
                             <div>
                                 <span class="badge text-bg-success"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="{{ route('admin.tags.edit', $tag->slug) }}">Edit</a></span>
                             </div>
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.tags.destroy', $tag->slug) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type='submit' class="delete-button btn btn-danger text-white" data-item-title="{{ $tag->slug }}"> <i class="fa-solid fa-trash"></i></button>
