@@ -1,0 +1,60 @@
+@use './partials/variables' as *;
+
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+
+
+.img-logo{
+    width: 110px;
+}
+
+.max-height{
+    max-height: 80px;
+}
+
+.post-img-size{
+    width: 150px;
+}
+
+.icon{
+    font-size: 2.2em;
+}
+
+.navigator{
+    width: 350px;
+    height: 100vh;
+
+    .sub-menu {
+        display: none;
+         
+    }
+    
+    .nav-item:hover .sub-menu {
+        display: block;
+         
+    }
+    .icon-container{
+        width: 40px;
+    }
+}
+
+.pagination{
+    nav{
+        margin: 0 auto;
+    }
+}
+
+@media (max-width:768px) {
+    .navigator {
+        width: 80px;
+    }
+
+}
