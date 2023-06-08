@@ -21,6 +21,7 @@
                         <th>Difficulty</th>
                         <th>Languages</th>
                         <th>Category</th>
+                        <th>Tags</th>
                         <th>Action</th>
                          
                     </tr>
@@ -34,6 +35,15 @@
                         <td>{{ $post->difficulty }}</td>
                         <td>{{ $post->programming_language }}</td>
                         <td>{{ $post->category ? $post->category->name : 'Senza categoria' }}</td>
+                        <td>
+                            @if ($post->tags->isNotEmpty())
+                                @foreach ($post->tags as $tag)
+                                    {{ $tag->name }}
+                                @endforeach
+                            @else
+                                Senza Tag
+                            @endif
+                        </td>
                         <td>
                             <div>
                                 <span class="badge text-bg-primary"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="{{ route('admin.posts.show', $post->slug ) }}">Show</a></span>

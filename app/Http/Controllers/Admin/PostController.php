@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $postTable = Post::with('category')->paginate(10);
+        $postTable = Post::with('category', 'tags')->paginate(10);
         //dd($postTable);
         return view('admin.posts.index', compact('postTable'));
     }
